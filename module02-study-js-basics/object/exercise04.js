@@ -12,7 +12,7 @@ circle3.pen.style = "solid";
 
 for (let key in circle3) {
     let value = circle3[key];
-    if (typeof(value) == "object") {
+    if (typeof (value) == "object") {
         for (let attribute in value) {
             console.log(`${key}'s ${attribute}: ${value[attribute]}`);
         }

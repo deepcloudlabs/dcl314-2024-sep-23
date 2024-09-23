@@ -7,6 +7,6 @@ circle1 = {
     }
 }
 
-console.log(typeof(circle1));
+console.log(typeof (circle1));
 console.log(`circle1's radius: ${circle1.radius}`);
 console.log(`circle1's area: ${circle1.area()}`);

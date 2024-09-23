@@ -14,4 +14,4 @@ circle5 = {
     pen: pen
 };
 // this is a shortcut to circle5
-circle6 = {x,y,radius, pen};
+circle6 = {x, y, radius, pen};

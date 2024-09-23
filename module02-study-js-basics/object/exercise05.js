@@ -12,6 +12,6 @@ circle4.pen.style = "solid";
 // let x = circle4.x;
 // let y = circle4.y;
 // let radius = circle4.radius;
-let {x,radius,...rest} = {...circle4};
+let {x, radius, ...rest} = {...circle4};
 console.log(`x: ${x}, radius: ${radius}`);
 console.log(`rest: ${JSON.stringify(rest)}`);
