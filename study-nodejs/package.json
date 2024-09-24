@@ -1,0 +1,18 @@
+{
+  "name": "study-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "middleware": "nodemon server.js",
+    "service": "set UV_THREADPOOL_SIZE=64 && node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deepcloudlabs/dcl314-2024-sep-23.git"
+  },
+  "dependencies": {
+    "nodemon": "^3.1.7"
+  },
+  "private": false
+}
