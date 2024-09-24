@@ -11,8 +11,10 @@ async function fun(numbers){
     return even_numbers;
 }
 
-fun([1,2,3,4,5,6,7,8,9,10]).then( result => {
-    console.log(result);
-}).catch( error => {
-    console.error(error);
-})
+async function gun(){
+    let result = await fun([1,2,3,4,5,6,7,8,9,10]);
+    console.log(`result: ${result}`);
+}
+
+gun().then(() => console.log('done'));
+
