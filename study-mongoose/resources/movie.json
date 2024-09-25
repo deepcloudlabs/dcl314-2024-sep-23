@@ -1,0 +1,23 @@
+{
+  "_id": 24,
+  "directors": [
+    {
+      "_id": 25,
+      "imdb": "nm0000165",
+      "name": "Ron Howard"
+    }
+  ],
+  "genres": [
+    {
+      "name": "Mystery",
+      "_id": 4
+    },
+    {
+      "name": "Thriller",
+      "_id": 7
+    }
+  ],
+  "imdb": "tt0808151",
+  "title": "Angels and Deamons",
+  "year": 2009
+}
