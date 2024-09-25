@@ -21,8 +21,26 @@ const removeMovie = (imdb) => {
     return MovieModel.deleteOne({imdb});
 }
 
+const getGenreCounts = () => {
+    return MovieModel.aggregate([
+        {"$unwind": {path: "$genres"}},
+        {"$set": {genres: "$genres.name"}},
+        {
+            "$group": {
+                "_id": "$genres",
+                "count": { $sum: 1 },
+            }
+        },
+        {
+            "$sort": {
+                "count": -1
+            }
+        }
+    ]);
+}
 
 exports.getMovieByImdb = getMovieByImdb;
 exports.getAllMovies = getAllMovies;
 exports.saveMovie = saveMovie;
 exports.removeMovie = removeMovie;
+exports.getGenreCounts = getGenreCounts;
