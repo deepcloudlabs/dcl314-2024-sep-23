@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "middleware": "nodemon server.js",
-    "service": "set UV_THREADPOOL_SIZE=64 && node server.js"
+    "service": "node --env-file=.env server.js"
   },
   "repository": {
     "type": "git",
