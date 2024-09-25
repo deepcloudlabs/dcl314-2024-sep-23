@@ -8,8 +8,11 @@ const server = http.createServer(async (req, res) => {
     }
 });
 
+console.log(`UV_THREADPOOL_SIZE: ${process.env.UV_THREADPOOL_SIZE}`);
+console.log(`PID: ${process.pid}`);
+
 const port = 9100;
 
-server.listen(port, () => {
-    console.log(`Server listening on port ${port}`);
+server.listen(process.env.PORT, () => {
+    console.log(`Server listening on port ${process.env.PORT}`);
 })
