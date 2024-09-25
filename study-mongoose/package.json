@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "main": "exercise01.js",
   "scripts": {
-    "exercise01": "nodemon --env-file=.env exercise01.js"
+    "exercise01": "nodemon --env-file=.env exercise01.js",
+    "exercise02": "nodemon --env-file=.env exercise02.js",
+    "exercise03": "nodemon --env-file=.env exercise03.js",
+    "exercise04": "nodemon --env-file=.env exercise04.js",
+    "exercise05": "nodemon --env-file=.env-world exercise05.js",
+    "exercise06": "nodemon --env-file=.env-world exercise06.js"
   },
   "dependencies": {
     "mongoose": "^8.6.3",

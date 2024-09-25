@@ -1,0 +1,47 @@
+{
+  "_id": "ARE",
+  "capital": 65,
+  "cities": [
+    {
+      "district": "Dubai",
+      "_id": 64,
+      "name": "Dubai",
+      "population": 669181
+    },
+    {
+      "district": "Abu Dhabi",
+      "_id": 65,
+      "name": "Abu Dhabi",
+      "population": 398695
+    },
+    {
+      "district": "Sharja",
+      "_id": 66,
+      "name": "Sharja",
+      "population": 320095
+    },
+    {
+      "district": "Abu Dhabi",
+      "_id": 67,
+      "name": "al-Ayn",
+      "population": 225970
+    },
+    {
+      "district": "Ajman",
+      "_id": 68,
+      "name": "Ajman",
+      "population": 114395
+    }
+  ],
+  "continent": "Asia",
+  "gnp": 37966,
+  "governmentForm": "Emirate Federation",
+  "headOfState": "Zayid bin Sultan al-Nahayan",
+  "indepYear": 1971,
+  "lifeExpectancy": 74.1,
+  "localName": "Al-Imarat al-´Arabiya al-Muttahida",
+  "name": "United Arab Emirates",
+  "population": 2441000,
+  "region": "Middle East",
+  "surfaceArea": 83612
+}
