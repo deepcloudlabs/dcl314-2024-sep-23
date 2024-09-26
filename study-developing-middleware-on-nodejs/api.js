@@ -13,6 +13,8 @@ const {
     removeEmployee
 } = require("./mongo-repository-hr");
 
+let sessions = [];
+
 const createApi = (callback) => {
     api.use(bodyParser.json({limit: "5mb"}));
     api.use(logger("dev"));
@@ -66,6 +68,12 @@ const createApi = (callback) => {
             insertedEmployee => {
                 res.set("Content-Type", "application/json");
                 res.status(200).send(insertedEmployee);
+                sessions.forEach( session => {
+                    io.emit("hr-events",{
+                        eventType: "EMPLOYEE_HIRED",
+                        identityNo: insertedEmployee._id
+                    })
+                })
             }
         ).catch(error => {
             res.set("Content-Type", "application/json");
@@ -80,6 +88,12 @@ const createApi = (callback) => {
             updatedEmployee => {
                 res.set("Content-Type", "application/json");
                 res.status(200).send(updatedEmployee);
+                sessions.forEach( session => {
+                    io.emit("hr-events",{
+                        eventType: "EMPLOYEE_UPDATED",
+                        identityNo: updatedEmployee._id
+                    })
+                })
             }
         ).catch(error => {
             res.set("Content-Type", "application/json");
@@ -94,6 +108,12 @@ const createApi = (callback) => {
             removedEmployee => {
                 res.set("Content-Type", "application/json");
                 res.status(200).send(removedEmployee);
+                sessions.forEach( session => {
+                    io.emit("hr-events",{
+                        eventType: "EMPLOYEE_FIRED",
+                        identityNo: removedEmployee._id
+                    })
+                });
             }
         ).catch(error => {
             res.set("Content-Type", "application/json");
@@ -103,7 +123,19 @@ const createApi = (callback) => {
 //endregion
 //endregion
 
-    api.listen(process.env.API_PORT || 8100, callback);
+    const server = api.listen(process.env.API_PORT || 8100, callback);
+    const io = require("socket.io")(server,{
+        "cors": "*",
+        "methods": ["GET", "POST", "PUT", "DELETE", "PATCH"],
+    });
+    io.on("connect", session => {
+        console.log(`New connection is created for the session[${session.id}]`);
+        sessions.push(session);
+        io.on("disconnect", () => {
+            console.log(`Connection is closed from the session[${session.id}]`);
+            sessions = sessions.filter( _session => _session.id !== session.id);
+        })
+    })
 }
 
 const getApi = () => {
