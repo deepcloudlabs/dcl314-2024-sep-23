@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "main": "service.js",
   "scripts": {
-    "middleware": "node --env-file=.env-hr service.js",
+    "service": "node --env-file=.env-hr service.js",
     "exercise01": "node --env-file=.env-hr exercise01.js",
-    "exercise02": "node --env-file=.env-hr exercise02.js"
+    "exercise02": "node --env-file=.env-hr exercise02.js",
+    "exercise03": "node --env-file=.env-hr exercise03.js"
   },
   "dependencies": {
     "mongoose": "^8.6.3",

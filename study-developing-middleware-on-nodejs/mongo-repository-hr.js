@@ -25,7 +25,7 @@ const updateEmployee = (employee) => {
     }
     return EmployeeModel.findOneAndUpdate(
         {_id: employee._id},
-        {$set: updatedEmployee }
+        {$set: updatedEmployee}
     )
 }
 
@@ -33,8 +33,26 @@ const removeEmployee = (identity) => {
     return EmployeeModel.deleteOne({_id: identity});
 }
 
+const groupEmployeesByDepartment = () => {
+    return EmployeeModel.aggregate([
+        {
+          "$group": {
+            "_id": "$department",
+            "count": {$sum: 1},
+            "salary": {$sum: "$salary"}
+          }
+        },
+        {
+            "$sort": {
+                "count": -1
+            }
+        }
+    ]);
+};
+
 exports.getEmployeeById = getEmployeeById;
 exports.getAllEmployees = getAllEmployees;
 exports.saveEmployee = createEmployee;
 exports.removeEmployee = removeEmployee;
 exports.updateEmployee = updateEmployee;
+exports.groupEmployeesByDepartment = groupEmployeesByDepartment;
