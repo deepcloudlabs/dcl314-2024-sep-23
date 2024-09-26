@@ -6,7 +6,13 @@
     "service": "node --env-file=.env-hr service.js",
     "exercise01": "node --env-file=.env-hr exercise01.js",
     "exercise02": "node --env-file=.env-hr exercise02.js",
-    "exercise03": "node --env-file=.env-hr exercise03.js"
+    "exercise03": "node --env-file=.env-hr exercise03.js",
+    "ws-server": "node ws-server.js",
+    "ws-client": "node ws-client.js",
+    "kafka-producer": "node --env-file=.env-kafka kafka/producer.js",
+    "kafka-consumer": "node --env-file=.env-kafka kafka/consumer.js",
+    "rabbitmq-producer": "node --env-file=.env-rabbitmq rabbitmq/producer.js",
+    "rabbitmq-consumer": "node --env-file=.env-rabbitmq rabbitmq/consumer.js"
   },
   "dependencies": {
     "mongoose": "^8.6.3",
@@ -17,8 +23,9 @@
     "swagger-node-express": "^2.1.3",
     "socket.io": "^4.8.0",
     "socket.io-client": "^4.8.0",
-    "kafkajs": "^2.2.4",
-    "amqplib": "^0.10.4"
+    "node-rdkafka": "^3.1.0",
+    "amqplib": "^0.10.4",
+    "ws": "^8.18.0"
   },
   "keywords": [],
   "author": "",
