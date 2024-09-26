@@ -16,6 +16,14 @@ const {
 const createApi = (callback) => {
     api.use(bodyParser.json({limit: "5mb"}));
     api.use(logger("dev"));
+//region CORS FILTER
+    api.use(function (req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Methods", "HEAD,OPTIONS,POST,PUT,PATCH,DELETE,GET");
+        res.header("Access-Control-Allow-Headers", "Origin,Content-Type,Accept");
+        next();
+    });
+//endregion
     const contract = require("./swagger-hr-api.json");
     api.use("/api-docs", swaggerUi.serve, swaggerUi.setup(contract));
 
